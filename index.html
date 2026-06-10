@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Writing Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Diary • Report • Essay</p>
+        <h1>Collect your writing, improve it, and measure your rewrite.</h1>
+        <p>
+          Save drafts in your browser, review practical suggestions, then compare your rewrite to
+          see how closely it follows the suggested revision.
+        </p>
+      </div>
+      <button id="new-button" type="button">New draft</button>
+    </header>
+
+    <main class="layout">
+      <aside class="panel sidebar" aria-label="Saved writing">
+        <h2>Saved writing</h2>
+        <div id="entries" class="entries"></div>
+      </aside>
+
+      <section class="workspace">
+        <form id="writing-form" class="panel editor">
+          <div class="form-row">
+            <label>
+              Title
+              <input id="title" name="title" type="text" placeholder="My school diary">
+            </label>
+            <label>
+              Writing type
+              <select id="type" name="type">
+                <option value="diary">Diary</option>
+                <option value="report">Report</option>
+                <option value="essay">Essay</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Step 1: Collect your writing
+            <textarea
+              id="draft"
+              name="draft"
+              rows="12"
+              placeholder="Paste or write your diary, report, or essay here."
+            ></textarea>
+          </label>
+
+          <div class="actions">
+            <button type="submit">Save and analyze</button>
+            <span id="save-status" role="status">Drafts are saved locally in this browser.</span>
+          </div>
+        </form>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 2</p>
+              <h2>Suggestions for a better version</h2>
+            </div>
+          </div>
+          <div id="stats" class="stats" aria-live="polite"></div>
+          <ol id="suggestions" class="suggestions"></ol>
+          <label>
+            Suggested revision
+            <textarea id="suggested-revision" rows="8" readonly></textarea>
+          </label>
+          <button id="copy-suggestion" class="secondary" type="button">Copy suggested revision</button>
+        </section>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 3</p>
+              <h2>Rewrite and calculate the adjustment percent</h2>
+            </div>
+          </div>
+          <label>
+            Your rewritten version
+            <textarea
+              id="rewrite"
+              rows="8"
+              placeholder="Rewrite your draft here after reading the suggestions."
+            ></textarea>
+          </label>
+          <div class="actions">
+            <button id="compare-button" type="button">Compare rewrite</button>
+          </div>
+          <div id="comparison" class="comparison" aria-live="polite">
+            <p class="empty">Add a rewrite to compare it with the suggested revision.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
