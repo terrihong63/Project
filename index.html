@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily English Report Coach</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#">Daily English Report</a>
+        <a href="#workflow">Workflow</a>
+      </nav>
+      <section class="hero-content">
+        <p class="eyebrow">Three-step writing practice</p>
+        <h1>Practice, polish, and rewrite your daily English report.</h1>
+        <p class="hero-copy">
+          Write your report, review a corrected version, study a higher-level
+          suggestion, then rewrite it and compare your version with the model.
+        </p>
+        <a class="primary-link" href="#workflow">Start today&apos;s report</a>
+      </section>
+    </header>
+
+    <main id="workflow" class="workflow" aria-labelledby="workflow-title">
+      <section class="section-heading">
+        <p class="eyebrow">Your daily loop</p>
+        <h2 id="workflow-title">Correct, elevate, rewrite</h2>
+        <p>
+          This page runs in your browser and gives practical writing feedback
+          for daily English practice.
+        </p>
+      </section>
+
+      <section class="card step-card" aria-labelledby="step-one-title">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3 id="step-one-title">Write your daily report</h3>
+          <p>
+            Paste or type your English writing. The coach will clean up common
+            grammar, spacing, capitalization, and phrasing issues.
+          </p>
+          <label for="originalText">My writing</label>
+          <textarea
+            id="originalText"
+            rows="8"
+            placeholder="Example: Today I want to explain what I learned and what I need to improve..."
+          ></textarea>
+          <div class="button-row">
+            <button id="sampleButton" type="button" class="secondary-button">
+              Use sample
+            </button>
+            <button id="correctButton" type="button">Correct my writing</button>
+          </div>
+          <label for="correctedText">Corrected version</label>
+          <textarea id="correctedText" rows="8"></textarea>
+          <ul id="correctionNotes" class="notes" aria-live="polite"></ul>
+        </div>
+      </section>
+
+      <section class="card step-card" aria-labelledby="step-two-title">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3 id="step-two-title">Study a higher-level version</h3>
+          <p>
+            Generate a more interpretive version with stronger transitions,
+            richer vocabulary, and a reflective closing idea.
+          </p>
+          <button id="elevateButton" type="button">
+            Suggest higher-level English
+          </button>
+          <label for="elevatedText">Suggested version</label>
+          <textarea id="elevatedText" rows="8"></textarea>
+        </div>
+      </section>
+
+      <section class="card step-card" aria-labelledby="step-three-title">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3 id="step-three-title">Rewrite and check your match</h3>
+          <p>
+            Rewrite the report in your own words. Then compare your rewrite with
+            the suggested version and get advice for another rewrite.
+          </p>
+          <label for="rewriteText">My rewrite</label>
+          <textarea id="rewriteText" rows="8"></textarea>
+          <button id="checkRewriteButton" type="button">Check my rewrite</button>
+
+          <div class="score-panel" aria-live="polite">
+            <div>
+              <span class="score-label">Match to suggested version</span>
+              <strong id="matchScore">0%</strong>
+            </div>
+            <div class="meter" aria-hidden="true">
+              <span id="matchMeter"></span>
+            </div>
+          </div>
+
+          <label for="rewriteCorrection">Corrected rewrite</label>
+          <textarea id="rewriteCorrection" rows="6" readonly></textarea>
+          <div id="rewriteAdvice" class="advice"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Keep one report per day. Rewrite until the score and the feedback show
+        that your meaning, grammar, and tone are close to the model.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
